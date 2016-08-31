@@ -52,7 +52,7 @@ public class AuthorizationScenario1 {
 
     @Then("I close a browser")
     public void i_close_a_browser(){
-        driver.quit();
+        loginPage.closeDriver();
     }
 
 
