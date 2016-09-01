@@ -11,15 +11,13 @@ public class MainPage extends AbstractPage {
         super(driver);
     }
 
-    public MainPage checkSignOut (){
-        Assert.assertTrue(driver.findElement(By.cssSelector(".signout")).isDisplayed());
-        return new MainPage(driver);
+    public void checkSignOut (){
+        Assert.assertTrue(findElement(By.cssSelector(".signout")).isDisplayed());
     }
 
-    public MainPage checkFullUserName (String fullUserName){
-        Assert.assertTrue(driver.findElement(By.cssSelector(".pure-xs-hidden.pure-sm-hidden.text-primary")).isDisplayed());
-        Assert.assertEquals(driver.findElement(By.cssSelector(".pure-xs-hidden.pure-sm-hidden.text-primary")).getText(),fullUserName);
-        return new MainPage(driver);
+    public void checkFullUserName (String fullUserName){
+        Assert.assertTrue(findElement(By.cssSelector(".pure-xs-hidden.pure-sm-hidden.text-primary")).isDisplayed());
+        Assert.assertEquals(findElement(By.cssSelector(".pure-xs-hidden.pure-sm-hidden.text-primary")).getText(),fullUserName);
     }
 
 

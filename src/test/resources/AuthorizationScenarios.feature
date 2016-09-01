@@ -1,5 +1,5 @@
 @run
-Feature: Authorization Scenario 1
+Feature: Authorization Scenarios
 
   Background:
     Given I am on the Login page
@@ -22,6 +22,9 @@ Feature: Authorization Scenario 1
     Then I close a browser
 
   Scenario: Scenario 3
+
     When User navigate to /app/books route without authorization
     Then User redirect to Login view
     Then I close a browser
+
+

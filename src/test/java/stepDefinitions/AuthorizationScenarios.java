@@ -10,9 +10,11 @@ import pageObject.LoginPage;
 import pageObject.MainPage;
 
 
-public class AuthorizationScenarios {
+public class AuthorizationScenarios extends AbstractScenarios {
 
     WebDriver driver = new FirefoxDriver();
+//    WebDriver driver = getDriver();
+
     LoginPage loginPage;
     MainPage mainPage;
 
@@ -88,6 +90,7 @@ public class AuthorizationScenarios {
     public void user_redirect_to_Login_view() throws Throwable {
         loginPage.checkSignInButton();
     }
+
 
 
 }

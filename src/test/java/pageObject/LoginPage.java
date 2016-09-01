@@ -10,52 +10,49 @@ public class LoginPage extends AbstractPage{
         super(driver);
     }
 
-    public LoginPage checkUserNameField (){
-        Assert.assertTrue(driver.findElement(By.cssSelector("#username")).isDisplayed());
-        return new LoginPage(driver);
+    public void checkUserNameField (){
+        Assert.assertTrue(findElement(By.cssSelector("#username")).isDisplayed());
     }
 
-    public LoginPage checkPasswordField (){
-        Assert.assertTrue(driver.findElement(By.cssSelector("#password")).isDisplayed());
-        return new LoginPage(driver);
+    public void checkPasswordField (){
+        Assert.assertTrue(findElement(By.cssSelector("#password")).isDisplayed());
     }
 
-    public LoginPage checkSignInButton (){
-        Assert.assertTrue(driver.findElement(By.cssSelector(".pure-button.pure-button-primary.button-success")).isDisplayed());
-        return new LoginPage(driver);
+    public void checkSignInButton (){
+        Assert.assertTrue(findElement(By.cssSelector(".pure-button.pure-button-primary.button-success")).isDisplayed());
     }
 
-    public LoginPage checkLogo (){
-        Assert.assertTrue(driver.findElement(By.cssSelector(".login-logo")).isDisplayed());
-        return new LoginPage(driver);
+    public void checkLogo (){
+        Assert.assertTrue(findElement(By.cssSelector(".login-logo")).isDisplayed());
     }
 
-    public LoginPage checkLoginMessage (){
-        Assert.assertTrue(driver.findElement(By.cssSelector(".login-msg")).isDisplayed());
-        return new LoginPage(driver);
+    public void checkLoginMessage (){
+        Assert.assertTrue(findElement(By.cssSelector(".login-msg")).isDisplayed());
     }
 
-    public LoginPage enterUserName (String userName) {
-        driver.findElement(By.cssSelector("#username")).sendKeys(userName);
-        return new LoginPage(driver);
+    public void enterUserName (String userName) {
+        findElement(By.cssSelector("#username")).sendKeys(userName);
     }
 
-    public LoginPage enterPassword (String password) {
-        driver.findElement(By.cssSelector("#password")).sendKeys(password);
-        return new LoginPage(driver);
+    public void enterPassword (String password) {
+        findElement(By.cssSelector("#password")).sendKeys(password);
     }
 
-    public LoginPage submitSignInButton (){
-        driver.findElement(By.xpath("//button[@type='submit']")).isEnabled();
-        driver.findElement(By.xpath("//button[@type='submit']")).click();
-        return new LoginPage(driver);
+    public void submitSignInButton (){
+        findElement(By.xpath("//button[@type='submit']")).isEnabled();
+        findElement(By.xpath("//button[@type='submit']")).click();
     }
 
-    public LoginPage tryToOpenMainPageWithoutAutorization (){
+    public void tryToOpenMainPageWithoutAutorization (){
         driver.get("http://172.23.62.90:3000/app/books");
         driver.manage().window().maximize();
-//        Assert.assertTrue(driver.findElement(By.cssSelector(".bg-screen")).isDisplayed());
-        return new LoginPage(driver);
+    }
+
+    public void login (String userName, String password) {
+        findElement(By.cssSelector("#username")).sendKeys(userName);
+        findElement(By.cssSelector("#password")).sendKeys(password);
+        findElement(By.xpath("//button[@type='submit']")).isEnabled();
+        findElement(By.xpath("//button[@type='submit']")).click();
     }
 
 
