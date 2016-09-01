@@ -49,6 +49,14 @@ public class LoginPage extends AbstractPage{
         driver.findElement(By.xpath("//button[@type='submit']")).isEnabled();
         driver.findElement(By.xpath("//button[@type='submit']")).click();
         return new LoginPage(driver);
-
     }
+
+    public LoginPage tryToOpenMainPageWithoutAutorization (){
+        driver.get("http://172.23.62.90:3000/app/books");
+        driver.manage().window().maximize();
+//        Assert.assertTrue(driver.findElement(By.cssSelector(".bg-screen")).isDisplayed());
+        return new LoginPage(driver);
+    }
+
+
 }

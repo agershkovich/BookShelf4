@@ -29,13 +29,13 @@ public class AuthorizationScenarios {
 
 
     @Then("Password field displayed$")
-    public void password_field_displayed(){
+    public void password_field_displayed() {
 //        Assert.assertTrue(driver.findElement(By.cssSelector("#password")).isDisplayed());
         loginPage.checkPasswordField();
     }
 
     @Then("Sign In button displayed$")
-    public void sign_In_button_displayed(){
+    public void sign_In_button_displayed() {
 //        Assert.assertTrue(driver.findElement(By.cssSelector(".pure-button.pure-button-primary.button-success")).isDisplayed());
         loginPage.checkSignInButton();
     }
@@ -53,7 +53,7 @@ public class AuthorizationScenarios {
     }
 
     @Then("I close a browser")
-    public void i_close_a_browser(){
+    public void i_close_a_browser() {
         loginPage.closeDriver();
     }
 
@@ -67,9 +67,6 @@ public class AuthorizationScenarios {
     public void user_click_Sign_In_button() throws Throwable {
         mainPage = new MainPage(driver);
         loginPage.submitSignInButton();
-//        driver.findElement(By.xpath("//button[@type='submit']")).isEnabled();
-//        driver.findElement(By.xpath("//button[@type='submit']")).click();
-
     }
 
     @Then("^User redirect to Main Page of BookShelf$")
@@ -82,16 +79,14 @@ public class AuthorizationScenarios {
         mainPage.checkFullUserName(fullUserName);
     }
 
-    @When("^User tries to open /app/books route without authorization$")
-    public void user_tries_to_open_app_books_route_without_authorization() throws Throwable {
-    }
-
     @When("^User navigate to /app/books route without authorization$")
-    public void user_navigate_to_app_books_route_without_authorization() throws Throwable {
+    public void user_tries_to_open_app_books_route_without_authorization() throws Throwable {
+        loginPage.tryToOpenMainPageWithoutAutorization();
     }
 
     @Then("^User redirect to Login view$")
     public void user_redirect_to_Login_view() throws Throwable {
+        loginPage.checkSignInButton();
     }
 
 
