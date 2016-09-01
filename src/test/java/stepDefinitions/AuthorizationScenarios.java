@@ -10,7 +10,7 @@ import pageObject.LoginPage;
 import pageObject.MainPage;
 
 
-public class AuthorizationScenario1 {
+public class AuthorizationScenarios {
 
     WebDriver driver = new FirefoxDriver();
     LoginPage loginPage;
@@ -26,6 +26,7 @@ public class AuthorizationScenario1 {
     public void login_field_displayed() {
         loginPage.checkUserNameField();
     }
+
 
     @Then("Password field displayed$")
     public void password_field_displayed(){
@@ -56,9 +57,6 @@ public class AuthorizationScenario1 {
         loginPage.closeDriver();
     }
 
-
-    ////////////////
-
     @Then("^User filed \"([^\"]*)\" and \"([^\"]*)\" fields with LOHIKA creds$")
     public void user_filed_and_fields_with_LOHIKA_creds(String userName, String password) throws Throwable {
         loginPage.enterUserName(userName);
@@ -82,6 +80,18 @@ public class AuthorizationScenario1 {
     @Then("^\"([^\"]*)\" is displayed in Header$")
     public void is_displayed_in_Header(String fullUserName) throws Throwable {
         mainPage.checkFullUserName(fullUserName);
+    }
+
+    @When("^User tries to open /app/books route without authorization$")
+    public void user_tries_to_open_app_books_route_without_authorization() throws Throwable {
+    }
+
+    @When("^User navigate to /app/books route without authorization$")
+    public void user_navigate_to_app_books_route_without_authorization() throws Throwable {
+    }
+
+    @Then("^User redirect to Login view$")
+    public void user_redirect_to_Login_view() throws Throwable {
     }
 
 
