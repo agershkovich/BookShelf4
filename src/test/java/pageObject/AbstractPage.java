@@ -5,8 +5,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import stepDefinitions.AbstractScenarios;
 
 /**
  * Created by agershkovich on 8/31/2016.

@@ -48,11 +48,12 @@ public class LoginPage extends AbstractPage{
         driver.manage().window().maximize();
     }
 
-    public void login (String userName, String password) {
+    public LoginPage login(String userName, String password) {
         findElement(By.cssSelector("#username")).sendKeys(userName);
         findElement(By.cssSelector("#password")).sendKeys(password);
         findElement(By.xpath("//button[@type='submit']")).isEnabled();
         findElement(By.xpath("//button[@type='submit']")).click();
+        return new LoginPage(driver);
     }
 
 

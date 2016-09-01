@@ -10,17 +10,16 @@ import pageObject.LoginPage;
 import pageObject.MainPage;
 
 
-public class AuthorizationScenarios extends AbstractScenarios {
+public class AuthorizationScenarios {
 
-    WebDriver driver = new FirefoxDriver();
-//    WebDriver driver = getDriver();
+    private WebDriver driver = new FirefoxDriver();
 
     LoginPage loginPage;
     MainPage mainPage;
 
     @Given("^I am on the Login page$")
     public void i_am_on_the_login_page() {
-        loginPage = new LoginPage(driver);
+       loginPage = new LoginPage(driver);
         loginPage.navigateToLoginPage();
     }
 
@@ -32,25 +31,21 @@ public class AuthorizationScenarios extends AbstractScenarios {
 
     @Then("Password field displayed$")
     public void password_field_displayed() {
-//        Assert.assertTrue(driver.findElement(By.cssSelector("#password")).isDisplayed());
         loginPage.checkPasswordField();
     }
 
     @Then("Sign In button displayed$")
     public void sign_In_button_displayed() {
-//        Assert.assertTrue(driver.findElement(By.cssSelector(".pure-button.pure-button-primary.button-success")).isDisplayed());
         loginPage.checkSignInButton();
     }
 
     @Then("Logo displayed")
     public void logo_displayed() {
-//        Assert.assertTrue(driver.findElement(By.cssSelector(".login-logo")).isDisplayed());
         loginPage.checkLogo();
     }
 
     @Then("Login Message displayed")
     public void login_Message_displayed() {
-//        Assert.assertTrue(driver.findElement(By.cssSelector(".login-msg")).isDisplayed());
         loginPage.checkLoginMessage();
     }
 
@@ -90,6 +85,34 @@ public class AuthorizationScenarios extends AbstractScenarios {
     public void user_redirect_to_Login_view() throws Throwable {
         loginPage.checkSignInButton();
     }
+
+    ///////////
+
+    @Then("^Login with admin \"([^\"]*)\" and \"([^\"]*)\"$")
+    public void login_with_admin_and(String userName, String password) throws Throwable {
+        loginPage.enterUserName(userName);
+        loginPage.enterPassword(password);
+        loginPage.submitSignInButton();
+
+    }
+
+    @When("^User browse to Book List View$")
+    public void user_browse_to_Book_List_View() throws Throwable {
+    }
+
+    @Then("^User see an Assign button in the Book Item$")
+    public void user_see_an_Assign_button_in_the_Book_Item() throws Throwable {
+    }
+
+    @Then("^User click a button$")
+    public void user_click_a_button() throws Throwable {
+    }
+
+    @Then("^User redirected to Assign Book View$")
+    public void user_redirected_to_Assign_Book_View() throws Throwable {
+    }
+
+
 
 
 
