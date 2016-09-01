@@ -4,9 +4,6 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-/**
- * Created by agershkovich on 8/31/2016.
- */
 public class LoginPage extends AbstractPage{
 
     public LoginPage(WebDriver driver) {
@@ -36,5 +33,22 @@ public class LoginPage extends AbstractPage{
     public LoginPage checkLoginMessage (){
         Assert.assertTrue(driver.findElement(By.cssSelector(".login-msg")).isDisplayed());
         return new LoginPage(driver);
+    }
+
+    public LoginPage enterUserName (String userName) {
+        driver.findElement(By.cssSelector("#username")).sendKeys(userName);
+        return new LoginPage(driver);
+    }
+
+    public LoginPage enterPassword (String password) {
+        driver.findElement(By.cssSelector("#password")).sendKeys(password);
+        return new LoginPage(driver);
+    }
+
+    public LoginPage submitSignInButton (){
+        driver.findElement(By.xpath("//button[@type='submit']")).isEnabled();
+        driver.findElement(By.xpath("//button[@type='submit']")).click();
+        return new LoginPage(driver);
+
     }
 }

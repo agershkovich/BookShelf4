@@ -15,6 +15,7 @@ public class AbstractPage {
 
     public LoginPage navigateToLoginPage() {
         driver.get("http://172.23.62.90:3000");
+        driver.manage().window().maximize();
         Assert.assertTrue(driver.findElement(By.cssSelector(".bg-screen")).isDisplayed());
         return new LoginPage(driver);
     }
