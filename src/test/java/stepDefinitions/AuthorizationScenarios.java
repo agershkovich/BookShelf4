@@ -3,8 +3,6 @@ package stepDefinitions;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import pageObject.AssignBookPage;
@@ -96,6 +94,7 @@ public class AuthorizationScenarios {
     }
 
     ///////////Assign Book Scenarios/////////////////
+    //Scenario 1
 
     @Then("^Login with admin \"([^\"]*)\" and \"([^\"]*)\"$")
     public void login_with_admin_and(String userName, String password) throws Throwable {
@@ -146,7 +145,38 @@ public class AuthorizationScenarios {
 
     }
 
+    //Scenario 2
 
+    @When("^User browse to Assign Book View as \"([^\"]*)\" and \"([^\"]*)\"$")
+    public void user_browse_to_Assign_Book_View_as_and(String userName, String password) throws Throwable {
+        loginPage.login(userName, password);
+        bookItem = new BookItem(driver);
+        bookItem.clickActionButton();
+        bookItem.clickAssignButton();
+
+    }
+
+    @Then("^User see an Assing Book form$")
+    public void user_see_an_Assing_Book_form() throws Throwable {
+        assignBookPage = new AssignBookPage(driver);
+        assignBookPage.assignFormTitleIsDisplayed();
+    }
+
+    @Then("^Assign Book drop-down list displayed$")
+    public void assign_Book_drop_down_list_displayed() throws Throwable {
+        assignBookPage.assignFormBookDropDownListIsDisplayed();
+    }
+
+    @Then("^To User drop-down list displayed$")
+    public void to_User_drop_down_list_displayed() throws Throwable {
+        assignBookPage.assignFormUserDropDownListIsDisplayed();
+    }
+
+    @Then("^Assign book button displayed$")
+    public void assign_book_button_displayed() throws Throwable {
+        assignBookPage.assignFormAssignBookButtonIsDisplayed();
+        assignBookPage.assignFormBackButtonIsDisplayed();
+    }
 
 
 

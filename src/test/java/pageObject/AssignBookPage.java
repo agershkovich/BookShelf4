@@ -17,4 +17,18 @@ public class AssignBookPage extends AbstractPage{
         Assert.assertTrue(findElement(By.xpath(".//*[@id='content']/div/div/div/div[2]/div/div/div/div[3]/form/fieldset/div[3]/button[1]")).isDisplayed());
     }
 
+    public void assignFormTitleIsDisplayed (){
+        Assert.assertTrue(findElement(By.cssSelector(".title>h2")).isDisplayed());
+    }
+
+    public void assignFormBookDropDownListIsDisplayed (){
+        Assert.assertTrue(findElement(By.xpath(".//*[@id='content']/div/div/div/div[2]/div/div/div/div[3]/form/fieldset/div[1]/select")).isDisplayed());
+    }
+
+    public void assignFormUserDropDownListIsDisplayed (){
+        Assert.assertTrue(findElement(By.xpath(".//*[@id='content']/div/div/div/div[2]/div/div/div/div[3]/form/fieldset/div[2]/select")).isDisplayed());
+    }
+
+
+
 }

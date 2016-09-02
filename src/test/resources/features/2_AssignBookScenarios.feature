@@ -15,3 +15,12 @@ Feature: Assign Book Scenarios
     When User click Assign button
     Then User redirected to Assign Book View
     Then I close a browser
+
+    Scenario: Scenario 2
+
+      When User browse to Assign Book View as "agershkovich@lohika.com" and "456rtyAG$%^RTY"
+      Then User see an Assing Book form
+      And Assign Book drop-down list displayed
+      And To User drop-down list displayed
+      And Assign book button displayed
+      Then I close a browser
