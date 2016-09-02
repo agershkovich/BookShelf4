@@ -3,19 +3,28 @@ package stepDefinitions;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import pageObject.AssignBookPage;
+import pageObject.BookItem;
 import pageObject.LoginPage;
 import pageObject.MainPage;
 
 
 public class AuthorizationScenarios {
+    String loginPageURL = "http://172.23.62.90:3000";
+    String mainPageURL = loginPageURL + "/app/books";
+
+
 
     private WebDriver driver = new FirefoxDriver();
 
     LoginPage loginPage;
     MainPage mainPage;
+    BookItem bookItem;
+    AssignBookPage assignBookPage;
 
     @Given("^I am on the Login page$")
     public void i_am_on_the_login_page() {
@@ -86,30 +95,55 @@ public class AuthorizationScenarios {
         loginPage.checkSignInButton();
     }
 
-    ///////////
+    ///////////Assign Book Scenarios/////////////////
 
     @Then("^Login with admin \"([^\"]*)\" and \"([^\"]*)\"$")
     public void login_with_admin_and(String userName, String password) throws Throwable {
-        loginPage.enterUserName(userName);
-        loginPage.enterPassword(password);
-        loginPage.submitSignInButton();
-
+        loginPage.login(userName, password);
     }
 
     @When("^User browse to Book List View$")
     public void user_browse_to_Book_List_View() throws Throwable {
+        mainPage = new MainPage(driver);
+        mainPage.checkPageURL(mainPageURL);
+
     }
 
-    @Then("^User see an Assign button in the Book Item$")
-    public void user_see_an_Assign_button_in_the_Book_Item() throws Throwable {
+    @Then("^User see an Action button in the Book Item$")
+    public void user_see_an_Action_button_in_the_Book_Item() throws Throwable {
+        bookItem = new BookItem(driver);
+        bookItem.bookItemFrontActionButtonIsDisplayed();
     }
 
-    @Then("^User click a button$")
-    public void user_click_a_button() throws Throwable {
+    @When("^User click Action button$")
+    public void user_click_action_button() throws Throwable {
+        bookItem.clickActionButton();
     }
+
+    @Then("^User see Back View of Book Item$")
+    public void user_see_back_view_of_book_item() throws Throwable {
+        bookItem.bookItemAssignButtonIsDisplayed();
+        bookItem.bookItemReleaseDIsabledButtonIsDisplayed();
+        bookItem.bookItemEditButtonIsDisplayed();
+        bookItem.bookItemBackButtonIsDisplayed();
+    }
+
+    @When("^User click Assign button$")
+    public void user_click_assign_button() throws Throwable {
+        bookItem.clickAssignButton();
+    }
+
+    @When("^User click Back button$")
+    public void user_click_back_button() throws Throwable {
+        bookItem.clickBackButton();
+    }
+
 
     @Then("^User redirected to Assign Book View$")
-    public void user_redirected_to_Assign_Book_View() throws Throwable {
+    public void user_redirected_to_Assign_Book_View() {
+        assignBookPage = new AssignBookPage(driver);
+        assignBookPage.assignFormAssignBookButtonIsDisplayed();
+
     }
 
 

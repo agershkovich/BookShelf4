@@ -44,7 +44,7 @@ public class LoginPage extends AbstractPage{
     }
 
     public void tryToOpenMainPageWithoutAutorization (){
-        driver.get("http://172.23.62.90:3000/app/books");
+        driver.get(mainPageURL);
         driver.manage().window().maximize();
     }
 
@@ -55,6 +55,8 @@ public class LoginPage extends AbstractPage{
         findElement(By.xpath("//button[@type='submit']")).click();
         return new LoginPage(driver);
     }
+
+
 
 
 }

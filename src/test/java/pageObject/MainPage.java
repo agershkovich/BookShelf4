@@ -7,6 +7,8 @@ import org.openqa.selenium.WebDriver;
 
 public class MainPage extends AbstractPage {
 
+
+
     public MainPage(WebDriver driver) {
         super(driver);
     }
@@ -19,6 +21,13 @@ public class MainPage extends AbstractPage {
         Assert.assertTrue(findElement(By.cssSelector(".pure-xs-hidden.pure-sm-hidden.text-primary")).isDisplayed());
         Assert.assertEquals(findElement(By.cssSelector(".pure-xs-hidden.pure-sm-hidden.text-primary")).getText(),fullUserName);
     }
+
+    public void  clickSignOut () {
+        findElement(By.cssSelector(".signout")).isDisplayed();
+        findElement(By.cssSelector(".signout")).click();
+    }
+
+
 
 
 }

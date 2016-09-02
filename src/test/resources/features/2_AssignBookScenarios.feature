@@ -9,7 +9,9 @@ Feature: Assign Book Scenarios
 
     Then Login with admin "agershkovich@lohika.com" and "456rtyAG$%^RTY"
     When User browse to Book List View
-    Then User see an Assign button in the Book Item
-    Then User click a button
+    Then User see an Action button in the Book Item
+    When User click Action button
+    Then User see Back View of Book Item
+    When User click Assign button
     Then User redirected to Assign Book View
     Then I close a browser
