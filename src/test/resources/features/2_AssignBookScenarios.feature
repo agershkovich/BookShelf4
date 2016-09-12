@@ -14,10 +14,7 @@ Feature: Assign Book Scenarios
   Scenario: Checking if UI elements are presents on Assign Book page (Assign Book Scenario 2)
     Given I am on the Login page
     When User browse to Assign Book View as "agershkovich@lohika.com" and "456rtyAG$%^RTY"
-    And Assign Book drop-down list displayed
-    And To User drop-down list displayed
-    And Assign book button displayed
-    Then User see an Assing Book form
+    Then All UI elements of Assign Book page are presented
     And I close a browser
 
 

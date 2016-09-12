@@ -25,7 +25,6 @@ public class AssignBookPage extends AbstractPage{
     public void assignFormBookDropDownListIsDisplayed (){
      Assert.assertTrue(findElement(By.xpath(".//*[@id='content']/div/div/div/div[3]/div/div/div/div[3]/form/fieldset/div[1]/select")).isDisplayed());
 
-
     }
 
     public void assignFormUserDropDownListIsDisplayed (){

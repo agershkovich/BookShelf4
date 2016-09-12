@@ -157,41 +157,23 @@ public class AuthorizationScenarios {
         bookItem = new BookItem(driver);
         bookItem.bookItemFrontActionButtonIsDisplayed();
         bookItem.clickActionButton();
-//        bookItem.bookItemAssignButtonIsDisplayed();
         bookItem.clickAssignButton();
         assignBookPage = new AssignBookPage(driver);
-//        assignBookPage.assignFormAssignBookButtonIsDisplayed();
-
-//        loginPage.login(userName, password);
-//        bookItem = new BookItem(driver);
-//        bookItem.clickActionButton();
-//        bookItem.clickAssignButton();
 
 
 
     }
 
-    @Then("^User see an Assing Book form$")
-    public void user_see_an_Assing_Book_form() throws Throwable {
+    @Then("^All UI elements of Assign Book page are presented$")
+    public void all_ui_elements_assign_book_page_are_presented() throws Throwable {
         assignBookPage = new AssignBookPage(driver);
+        assignBookPage.assignFormBookDropDownListIsDisplayed();
+        assignBookPage.assignFormUserDropDownListIsDisplayed();
+        assignBookPage.assignFormAssignBookButtonIsDisplayed();
+        assignBookPage.assignFormBackButtonIsDisplayed();
         assignBookPage.assignFormTitleIsDisplayed();
     }
 
-    @And("^Assign Book drop-down list displayed$")
-    public void assign_Book_drop_down_list_displayed() throws Throwable {
-        assignBookPage.assignFormBookDropDownListIsDisplayed();
-    }
-
-    @And("^To User drop-down list displayed$")
-    public void to_User_drop_down_list_displayed() throws Throwable {
-        assignBookPage.assignFormUserDropDownListIsDisplayed();
-    }
-
-    @And("^Assign book button displayed$")
-    public void assign_book_button_displayed() throws Throwable {
-        assignBookPage.assignFormAssignBookButtonIsDisplayed();
-        assignBookPage.assignFormBackButtonIsDisplayed();
-    }
 
 
 
