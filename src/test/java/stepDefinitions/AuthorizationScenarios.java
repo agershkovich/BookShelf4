@@ -1,5 +1,6 @@
 package stepDefinitions;
 
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -30,23 +31,23 @@ public class AuthorizationScenarios {
         loginPage.navigateToLoginPage();
     }
 
-    @Then("Login field displayed$")
+    @When("Login field displayed$")
     public void login_field_displayed() {
         loginPage.checkUserNameField();
     }
 
 
-    @Then("Password field displayed$")
+    @And("Password field displayed$")
     public void password_field_displayed() {
         loginPage.checkPasswordField();
     }
 
-    @Then("Sign In button displayed$")
+    @And("Sign In button displayed$")
     public void sign_In_button_displayed() {
         loginPage.checkSignInButton();
     }
 
-    @Then("Logo displayed")
+    @And("Logo displayed")
     public void logo_displayed() {
         loginPage.checkLogo();
     }
@@ -56,24 +57,24 @@ public class AuthorizationScenarios {
         loginPage.checkLoginMessage();
     }
 
-    @Then("I close a browser")
+    @And("I close a browser")
     public void i_close_a_browser() {
         loginPage.closeDriver();
     }
 
-    @Then("^User filed \"([^\"]*)\" and \"([^\"]*)\" fields with LOHIKA creds$")
+    @And("^User filed \"([^\"]*)\" and \"([^\"]*)\" fields with LOHIKA creds$")
     public void user_filed_and_fields_with_LOHIKA_creds(String userName, String password) throws Throwable {
         loginPage.enterUserName(userName);
         loginPage.enterPassword(password);
     }
 
-    @When("^User click Sign In button$")
+    @And("^User click Sign In button$")
     public void user_click_Sign_In_button() throws Throwable {
         mainPage = new MainPage(driver);
         loginPage.submitSignInButton();
     }
 
-    @Then("^User redirect to Main Page of BookShelf$")
+    @And("^User redirect to Main Page of BookShelf$")
     public void user_redirect_to_Main_Page_of_BookShelf() throws Throwable {
         mainPage.checkSignOut();
     }
@@ -96,35 +97,37 @@ public class AuthorizationScenarios {
     ///////////Assign Book Scenarios/////////////////
     //Scenario 1
 
-    @Then("^Login with admin \"([^\"]*)\" and \"([^\"]*)\"$")
+    @And("^Login with admin \"([^\"]*)\" and \"([^\"]*)\"$")
     public void login_with_admin_and(String userName, String password) throws Throwable {
         loginPage.login(userName, password);
     }
 
-    @When("^User browse to Book List View$")
+    @And("^User browse to Book List View$")
     public void user_browse_to_Book_List_View() throws Throwable {
         mainPage = new MainPage(driver);
         mainPage.checkPageURL(mainPageURL);
 
     }
 
-    @Then("^User see an Action button in the Book Item$")
+    @And("^User see an Action button in the Book Item$")
     public void user_see_an_Action_button_in_the_Book_Item() throws Throwable {
         bookItem = new BookItem(driver);
         bookItem.bookItemFrontActionButtonIsDisplayed();
     }
 
-    @When("^User click Action button$")
+    @And("^User click Action button$")
     public void user_click_action_button() throws Throwable {
         bookItem.clickActionButton();
     }
 
-    @Then("^User see Back View of Book Item$")
+    @And("^User see Back View of Book Item$")
     public void user_see_back_view_of_book_item() throws Throwable {
         bookItem.bookItemAssignButtonIsDisplayed();
         bookItem.bookItemReleaseDIsabledButtonIsDisplayed();
         bookItem.bookItemEditButtonIsDisplayed();
         bookItem.bookItemBackButtonIsDisplayed();
+        bookItem.bookItemDeleteButtonIsDisplayed();
+        bookItem.bookItemViewButtonIsDisplayed();
     }
 
     @When("^User click Assign button$")
@@ -149,10 +152,22 @@ public class AuthorizationScenarios {
 
     @When("^User browse to Assign Book View as \"([^\"]*)\" and \"([^\"]*)\"$")
     public void user_browse_to_Assign_Book_View_as_and(String userName, String password) throws Throwable {
+
         loginPage.login(userName, password);
         bookItem = new BookItem(driver);
+        bookItem.bookItemFrontActionButtonIsDisplayed();
         bookItem.clickActionButton();
+//        bookItem.bookItemAssignButtonIsDisplayed();
         bookItem.clickAssignButton();
+        assignBookPage = new AssignBookPage(driver);
+//        assignBookPage.assignFormAssignBookButtonIsDisplayed();
+
+//        loginPage.login(userName, password);
+//        bookItem = new BookItem(driver);
+//        bookItem.clickActionButton();
+//        bookItem.clickAssignButton();
+
+
 
     }
 
@@ -162,17 +177,17 @@ public class AuthorizationScenarios {
         assignBookPage.assignFormTitleIsDisplayed();
     }
 
-    @Then("^Assign Book drop-down list displayed$")
+    @And("^Assign Book drop-down list displayed$")
     public void assign_Book_drop_down_list_displayed() throws Throwable {
         assignBookPage.assignFormBookDropDownListIsDisplayed();
     }
 
-    @Then("^To User drop-down list displayed$")
+    @And("^To User drop-down list displayed$")
     public void to_User_drop_down_list_displayed() throws Throwable {
         assignBookPage.assignFormUserDropDownListIsDisplayed();
     }
 
-    @Then("^Assign book button displayed$")
+    @And("^Assign book button displayed$")
     public void assign_book_button_displayed() throws Throwable {
         assignBookPage.assignFormAssignBookButtonIsDisplayed();
         assignBookPage.assignFormBackButtonIsDisplayed();

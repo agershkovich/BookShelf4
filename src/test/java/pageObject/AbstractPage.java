@@ -1,10 +1,11 @@
 package pageObject;
 
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+
+import java.util.concurrent.TimeUnit;
+
+import static junit.framework.TestCase.fail;
 
 /**
  * Created by agershkovich on 8/31/2016.
@@ -15,8 +16,13 @@ public class AbstractPage{
 
     protected WebDriver driver;
 
+    private boolean acceptNextAlert = true;
+    private StringBuffer verificationErrors = new StringBuffer();
+
+
     public AbstractPage (WebDriver driver){
         this.driver = driver;
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
     public LoginPage navigateToLoginPage() {
@@ -52,7 +58,10 @@ public class AbstractPage{
     }
 
     public void closeDriver(){
-        driver.quit();
+        driver.quit();String verificationErrorString = verificationErrors.toString();
+        if (!"".equals(verificationErrorString)) {
+            fail(verificationErrorString);
+        }
     }
 
         public void checkPageURL (String pageURL){
@@ -60,7 +69,41 @@ public class AbstractPage{
             Assert.assertEquals(currentURL,pageURL);
         }
 
+    private boolean isElementPresent(By by) {
+        try {
+            driver.findElement(by);
+            return true;
+        } catch (NoSuchElementException e) {
+            return false;
+        }
+    }
 
+    private boolean isAlertPresent() {
+        try {
+            driver.switchTo().alert();
+            return true;
+        } catch (NoAlertPresentException e) {
+            return false;
+        }
+    }
 
-
+    private String closeAlertAndGetItsText() {
+        try {
+            Alert alert = driver.switchTo().alert();
+            String alertText = alert.getText();
+            if (acceptNextAlert) {
+                alert.accept();
+            } else {
+                alert.dismiss();
+            }
+            return alertText;
+        } finally {
+            acceptNextAlert = true;
+        }
+    }
 }
+
+
+
+
+

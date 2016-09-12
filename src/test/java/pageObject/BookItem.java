@@ -17,7 +17,8 @@ public class BookItem extends AbstractPage {
     }
 
     public void bookItemAssignButtonIsDisplayed (){
-        Assert.assertTrue(findElement(By.cssSelector(".pure-button.button-xl.button-success")).isDisplayed());
+//        Assert.assertTrue(findElement(By.cssSelector(".pure-button.button-xl.button-success")).isDisplayed());
+        Assert.assertTrue(findElement(By.linkText("Assign")).isDisplayed());
     }
 
     public void bookItemReleaseDIsabledButtonIsDisplayed (){
@@ -37,6 +38,14 @@ public class BookItem extends AbstractPage {
         Assert.assertTrue(findElement(By.cssSelector(".pure-button.more-button")).isDisplayed());
     }
 
+    public void bookItemDeleteButtonIsDisplayed (){
+        Assert.assertTrue(findElement(By.cssSelector(".pure-button.button-xl.button-error")).isDisplayed());
+    }
+
+    public void bookItemViewButtonIsDisplayed (){
+        Assert.assertTrue(findElement(By.linkText("View")).isDisplayed());
+    }
+
 
     public void clickActionButton() {
         findElement(By.cssSelector(".pure-button.more-button")).isEnabled();
@@ -44,8 +53,10 @@ public class BookItem extends AbstractPage {
     }
 
     public void clickAssignButton() {
-        findElement(By.cssSelector(".pure-button.button-xl.button-success")).isEnabled();
-        findElement(By.cssSelector(".pure-button.button-xl.button-success")).click();
+//        findElement(By.cssSelector(".pure-button.button-xl.button-success")).isEnabled();
+//        findElement(By.cssSelector(".pure-button.button-xl.button-success")).click();
+        findElement(By.linkText("Assign")).isEnabled();
+        findElement(By.linkText("Assign")).click();
     }
 
     public void clickBackButton() {

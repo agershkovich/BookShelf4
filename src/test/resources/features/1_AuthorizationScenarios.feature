@@ -1,30 +1,26 @@
 @run
 Feature: Authorization Scenarios
-
-  Background:
+  Scenario: Check if UI elements are presents (Authorization  Scenario 1)
     Given I am on the Login page
-
-  Scenario: Scenario 1
-
-    And Login field displayed
+    When Login field displayed
     And Password field displayed
     And Sign In button displayed
     And Logo displayed
-    And Login Message displayed
-    Then I close a browser
+    Then Login Message displayed
+    And I close a browser
 
-  Scenario: Scenario 2
-
-    Then User filed "agershkovich@lohika.com" and "456rtyAG$%^RTY" fields with LOHIKA creds
-    When User click Sign In button
-    Then User redirect to Main Page of BookShelf
+  Scenario: Redirecting to Main Page after entering correct creds (Authorization Scenario 2)
+    Given I am on the Login page
+    And User filed "agershkovich@lohika.com" and "456rtyAG$%^RTY" fields with LOHIKA creds
+    And User click Sign In button
+    And User redirect to Main Page of BookShelf
     Then "Alexey Gershkovich" is displayed in Header
-    Then I close a browser
+    And I close a browser
 
-  Scenario: Scenario 3
-
+  Scenario: User without authorization should be routed to Login View (Authorization Scenario 3)
+    Given I am on the Login page
     When User navigate to /app/books route without authorization
     Then User redirect to Login view
-    Then I close a browser
+    And I close a browser
 
 
