@@ -69,6 +69,11 @@ public class AbstractPage{
             Assert.assertEquals(currentURL,pageURL);
         }
 
+
+
+
+
+
     private boolean isElementPresent(By by) {
         try {
             driver.findElement(by);

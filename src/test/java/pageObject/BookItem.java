@@ -3,6 +3,7 @@ package pageObject;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 /**
  * Created by agershkovich on 9/2/2016.
@@ -12,12 +13,24 @@ public class BookItem extends AbstractPage {
         super(driver);
     }
 
-    public void bookItemFrontIsDisplayed (){
-        Assert.assertTrue(findElement(By.cssSelector(".book-content.anim.front")).isDisplayed());
+    //Repository
+
+    WebElement title = driver.findElement(By.xpath(".//*[@id='content']/div/div/div/div[3]/div/div/div[2]/div/div/div[1]/div[2]"));
+
+
+    public String getSelectedBookName(){
+        String titleText = title.getText();
+        System.out.println(titleText);
+        return titleText;
+
     }
 
+    public void bookItemTitleIsDisplayed (){
+        Assert.assertTrue(title.isDisplayed());
+    }
+
+
     public void bookItemAssignButtonIsDisplayed (){
-//        Assert.assertTrue(findElement(By.cssSelector(".pure-button.button-xl.button-success")).isDisplayed());
         Assert.assertTrue(findElement(By.linkText("Assign")).isDisplayed());
     }
 
@@ -26,7 +39,6 @@ public class BookItem extends AbstractPage {
     }
 
     public void bookItemEditButtonIsDisplayed (){
-//        Assert.assertTrue(findElement(By.cssSelector(".pure-button.button-xl")).isDisplayed());
         Assert.assertTrue(findElement(By.linkText("Edit")).isDisplayed());
     }
 
@@ -53,8 +65,6 @@ public class BookItem extends AbstractPage {
     }
 
     public void clickAssignButton() {
-//        findElement(By.cssSelector(".pure-button.button-xl.button-success")).isEnabled();
-//        findElement(By.cssSelector(".pure-button.button-xl.button-success")).click();
         findElement(By.linkText("Assign")).isEnabled();
         findElement(By.linkText("Assign")).click();
     }
@@ -63,8 +73,6 @@ public class BookItem extends AbstractPage {
         findElement(By.cssSelector(".pure-button.button-xl.button-warning")).isEnabled();
         findElement(By.cssSelector(".pure-button.button-xl.button-warning")).click();
     }
-
-
 
 
 }

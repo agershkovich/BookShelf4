@@ -4,6 +4,7 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import pageObject.AssignBookPage;
@@ -12,11 +13,9 @@ import pageObject.LoginPage;
 import pageObject.MainPage;
 
 
-public class AuthorizationScenarios {
+public class Steps {
     String loginPageURL = "http://172.23.62.90:3000";
     String mainPageURL = loginPageURL + "/app/books";
-
-
 
     private WebDriver driver = new FirefoxDriver();
 
@@ -24,6 +23,8 @@ public class AuthorizationScenarios {
     MainPage mainPage;
     BookItem bookItem;
     AssignBookPage assignBookPage;
+
+    String selectedBook;
 
     @Given("^I am on the Login page$")
     public void i_am_on_the_login_page() {
@@ -159,9 +160,6 @@ public class AuthorizationScenarios {
         bookItem.clickActionButton();
         bookItem.clickAssignButton();
         assignBookPage = new AssignBookPage(driver);
-
-
-
     }
 
     @Then("^All UI elements of Assign Book page are presented$")
@@ -172,6 +170,43 @@ public class AuthorizationScenarios {
         assignBookPage.assignFormAssignBookButtonIsDisplayed();
         assignBookPage.assignFormBackButtonIsDisplayed();
         assignBookPage.assignFormTitleIsDisplayed();
+    }
+
+    /////Scenario 3
+
+    @Given("^I am on the Main page with admin \"([^\"]*)\" and \"([^\"]*)\"$")
+    public void i_am_on_the_Main_page_with_admin_and(String userName, String password) throws Throwable {
+        loginPage = new LoginPage(driver);
+        loginPage.navigateToLoginPage();
+        loginPage.login(userName, password);
+        mainPage = new MainPage(driver);
+        mainPage.checkPageURL(mainPageURL);
+    }
+
+    @Given("^User sees a Books's title in the Book Item$")
+    public void user_see_a_Books_s_title_in_the_Book_Item() throws Throwable {
+        bookItem = new BookItem(driver);
+        bookItem.bookItemTitleIsDisplayed();
+        selectedBook = bookItem.getSelectedBookName();
+
+    }
+
+    @And("^User sees an Assing Book form$")
+    public void user_sees_an_Assing_Book_form() throws Throwable {
+        bookItem.bookItemFrontActionButtonIsDisplayed();
+        bookItem.clickActionButton();
+        bookItem.clickAssignButton();
+        assignBookPage = new AssignBookPage(driver);
+
+    }
+
+    @Then("^The value in Assign Book field is equal to Book's title that was selected in Book list view$")
+    public void the_value_in_Assign_Book_field_is_equal_to_Book_s_title_that_was_selected_in_Book_list_view() throws Throwable {
+        assignBookPage = new AssignBookPage(driver);
+        assignBookPage.assignFormBookDropDownListIsDisplayed();
+        String assignedBook = assignBookPage.getAssignedBookName();
+        Assert.assertEquals("Book names aren't equal", assignedBook, selectedBook);
+
     }
 
 
