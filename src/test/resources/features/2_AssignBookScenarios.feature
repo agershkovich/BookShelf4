@@ -1,4 +1,4 @@
-@run
+#@run
 Feature: Assign Book Scenarios
   Scenario: Redirection to Assign Book Page (Assign Book Scenario 1)
     Given I am on the Login page

@@ -16,6 +16,7 @@ public class BookItem extends AbstractPage {
     //Repository
 
     WebElement title = driver.findElement(By.xpath(".//*[@id='content']/div/div/div/div[3]/div/div/div[2]/div/div/div[1]/div[2]"));
+    WebElement front = driver.findElement(By.cssSelector(".book-content.anim.front"));
 
 
     public String getSelectedBookName(){
@@ -72,6 +73,11 @@ public class BookItem extends AbstractPage {
     public void clickBackButton() {
         findElement(By.cssSelector(".pure-button.button-xl.button-warning")).isEnabled();
         findElement(By.cssSelector(".pure-button.button-xl.button-warning")).click();
+    }
+
+    public void clickFront() {
+        front.isEnabled();
+        front.click();
     }
 
 

@@ -1,4 +1,4 @@
-@run
+#@run
 Feature: Authorization Scenarios
   Scenario: Check if UI elements are presents (Authorization  Scenario 1)
     Given I am on the Login page

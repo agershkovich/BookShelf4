@@ -7,10 +7,7 @@ import cucumber.api.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import pageObject.AssignBookPage;
-import pageObject.BookItem;
-import pageObject.LoginPage;
-import pageObject.MainPage;
+import pageObject.*;
 
 
 public class Steps {
@@ -23,6 +20,7 @@ public class Steps {
     MainPage mainPage;
     BookItem bookItem;
     AssignBookPage assignBookPage;
+    DetailPage detailPage;
 
     String selectedBook;
 
@@ -206,6 +204,26 @@ public class Steps {
         assignBookPage.assignFormBookDropDownListIsDisplayed();
         String assignedBook = assignBookPage.getAssignedBookName();
         Assert.assertEquals("Book names aren't equal", assignedBook, selectedBook);
+
+    }
+
+    ///Details Page
+
+    //Scenario 1 DrillDown to Details Page
+
+    @When("^I click on the Book Item$")
+    public void i_click_on_the_Book_Item() throws Throwable {
+        bookItem = new BookItem(driver);
+        bookItem.bookItemTitleIsDisplayed();
+        selectedBook = bookItem.getSelectedBookName();
+        bookItem.clickFront();
+    }
+
+    @Then("^I routed to Detail Page$")
+    public void i_routed_to_Detail_Page() throws Throwable {
+        detailPage = new DetailPage(driver);
+        String detailPageBookName = detailPage.getDetailedBookName();
+        Assert.assertEquals("Book names aren't equal", detailPageBookName, selectedBook);
 
     }
 
