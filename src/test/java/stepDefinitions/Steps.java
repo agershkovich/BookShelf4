@@ -149,8 +149,8 @@ public class Steps {
 
     //Scenario 2
 
-    @When("^User browse to Assign Book View as \"([^\"]*)\" and \"([^\"]*)\"$")
-    public void user_browse_to_Assign_Book_View_as_and(String userName, String password) throws Throwable {
+    @When("^Admin browse to Assign Book View as \"([^\"]*)\" and \"([^\"]*)\"$")
+    public void admin_browse_to_Assign_Book_View_as_and(String userName, String password) throws Throwable {
 
         loginPage.login(userName, password);
         bookItem = new BookItem(driver);
@@ -205,6 +205,31 @@ public class Steps {
         String assignedBook = assignBookPage.getAssignedBookName();
         Assert.assertEquals("Book names aren't equal", assignedBook, selectedBook);
 
+    }
+
+    //Scenario 5
+
+    @Given("^Admin on Assign Book Page as \"([^\"]*)\" and \"([^\"]*)\"$")
+    public void admin_on_Assign_Book_Page_as_and(String userName, String password) throws Throwable {
+        loginPage = new LoginPage(driver);
+        loginPage.navigateToLoginPage();
+        loginPage.login(userName, password);
+        bookItem = new BookItem(driver);
+        bookItem.bookItemFrontActionButtonIsDisplayed();
+        bookItem.clickActionButton();
+        bookItem.clickAssignButton();
+        assignBookPage = new AssignBookPage(driver);
+    }
+
+    @When("^Admin sees User List$")
+    public void admin_see_User_List() throws Throwable {
+        assignBookPage.assignFormUserDropDownListIsDisplayed();
+    }
+
+    @Then("^Admin can choose \"([^\"]*)\"$")
+    public void admin_can_choose(String string) throws Throwable {
+        assignBookPage.sendKeysToUserList(string);
+        Assert.assertEquals("User name isn't equal", string, assignBookPage.getSelectedUser());
     }
 
     ///Details Page

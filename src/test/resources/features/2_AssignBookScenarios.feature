@@ -13,7 +13,7 @@ Feature: Assign Book Scenarios
 
   Scenario: Checking if UI elements are presents on Assign Book page (Assign Book Scenario 2)
     Given I am on the Login page
-    When User browse to Assign Book View as "agershkovich@lohika.com" and "456rtyAG$%^RTY"
+    When Admin browse to Assign Book View as "agershkovich@lohika.com" and "456rtyAG$%^RTY"
     Then All UI elements of Assign Book page are presented
       And I close a browser
 
@@ -24,6 +24,14 @@ Feature: Assign Book Scenarios
     When User sees an Assing Book form
     Then The value in Assign Book field is equal to Book's title that was selected in Book list view
       And I close a browser
+
+  Scenario: Admin can choose any available User in Assign Page (Assign book Scenario 5)
+    Given Admin on Assign Book Page as "agershkovich@lohika.com" and "456rtyAG$%^RTY"
+    When Admin sees User List
+    Then Admin can choose "abc-ci abc-ci"
+      And I close a browser
+
+
 
 
 
