@@ -1,3 +1,4 @@
+@run
 Feature: Details Page
   Scenario: DrillDown to Details Page
     Given I am on the Main page with admin "agershkovich@lohika.com" and "456rtyAG$%^RTY"
