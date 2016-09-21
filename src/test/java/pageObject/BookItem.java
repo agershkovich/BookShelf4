@@ -17,6 +17,14 @@ public class BookItem extends AbstractPage {
 
     WebElement title = driver.findElement(By.xpath(".//*[@id='content']/div/div/div/div[3]/div/div/div[2]/div/div/div[1]/div[2]"));
     WebElement front = driver.findElement(By.cssSelector(".book-content.anim.front"));
+    WebElement assignButton = driver.findElement(By.linkText("Assign"));
+    WebElement releaseDisabledButton = driver.findElement(By.cssSelector(".pure-button.button-xl.button-error.pure-button-disabled"));
+    WebElement editButton = driver.findElement(By.linkText("Edit"));
+    WebElement backButton = driver.findElement(By.cssSelector(".pure-button.button-xl.button-warning"));
+    WebElement actionsButton = driver.findElement(By.cssSelector(".pure-button.more-button"));
+    WebElement deleteButton = driver.findElement(By.cssSelector(".pure-button.button-xl.button-error"));
+    WebElement viewButton = driver.findElement(By.linkText("View"));
+    public WebElement availableLabel = driver.findElement(By.cssSelector("div.text-success"));
 
 
     public String getSelectedBookName(){
@@ -32,52 +40,48 @@ public class BookItem extends AbstractPage {
 
 
     public void bookItemAssignButtonIsDisplayed (){
-        Assert.assertTrue(findElement(By.linkText("Assign")).isDisplayed());
+        Assert.assertTrue(assignButton.isDisplayed());
     }
 
     public void bookItemReleaseDIsabledButtonIsDisplayed (){
-        Assert.assertTrue(findElement(By.cssSelector(".pure-button.button-xl.button-error.pure-button-disabled")).isDisplayed());
+        Assert.assertTrue(releaseDisabledButton.isDisplayed());
     }
 
     public void bookItemEditButtonIsDisplayed (){
-        Assert.assertTrue(findElement(By.linkText("Edit")).isDisplayed());
+        Assert.assertTrue(editButton.isDisplayed());
     }
 
     public void bookItemBackButtonIsDisplayed (){
-        Assert.assertTrue(findElement(By.cssSelector(".pure-button.button-xl.button-warning")).isDisplayed());
+        Assert.assertTrue(backButton.isDisplayed());
     }
 
     public void bookItemFrontActionButtonIsDisplayed (){
-        Assert.assertTrue(findElement(By.cssSelector(".pure-button.more-button")).isDisplayed());
+        Assert.assertTrue(actionsButton.isDisplayed());
     }
 
     public void bookItemDeleteButtonIsDisplayed (){
-        Assert.assertTrue(findElement(By.cssSelector(".pure-button.button-xl.button-error")).isDisplayed());
+        Assert.assertTrue(deleteButton.isDisplayed());
     }
 
     public void bookItemViewButtonIsDisplayed (){
-        Assert.assertTrue(findElement(By.linkText("View")).isDisplayed());
+        Assert.assertTrue(viewButton.isDisplayed());
     }
 
 
     public void clickActionButton() {
-        findElement(By.cssSelector(".pure-button.more-button")).isEnabled();
-        findElement(By.cssSelector(".pure-button.more-button")).click();
+        waitAndClick(actionsButton);
     }
 
     public void clickAssignButton() {
-        findElement(By.linkText("Assign")).isEnabled();
-        findElement(By.linkText("Assign")).click();
+        waitAndClick(assignButton);
     }
 
     public void clickBackButton() {
-        findElement(By.cssSelector(".pure-button.button-xl.button-warning")).isEnabled();
-        findElement(By.cssSelector(".pure-button.button-xl.button-warning")).click();
+        waitAndClick(backButton);
     }
 
     public void clickFront() {
-        front.isEnabled();
-        front.click();
+        waitAndClick(front);
     }
 
 

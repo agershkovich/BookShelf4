@@ -38,6 +38,11 @@ Feature: Assign Book Scenarios
     Then Admin redirected to Main Page
       And I close a browser
 
+  Scenario: Available label is green when book is free (Assign book Scenario 8)
+    Given I am on the Main page with admin "agershkovich@lohika.com" and "456rtyAG$%^RTY"
+    When Admin sees Available label if book is free
+    Then Available Label is green
+      And I close a browser
 
 
 

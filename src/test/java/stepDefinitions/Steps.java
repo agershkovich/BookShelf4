@@ -245,6 +245,23 @@ public class Steps {
         mainPage.checkPageURL(mainPageURL);
     }
 
+    //Scenario 8
+
+    @When("^Admin sees Available label if book is free$")
+    public void admin_sees_Available_label_if_book_is_free() throws Throwable {
+        bookItem = new BookItem(driver);
+        Assert.assertTrue(bookItem.availableLabel.isDisplayed());
+        Assert.assertEquals("Available", bookItem.availableLabel.getText());
+    }
+
+    @Then("^Available Label is green$")
+    public void available_label_is_green() throws Throwable {
+        String colour = bookItem.availableLabel.getAttribute("class");
+        Assert.assertEquals("text-success", colour);
+        System.out.println(colour);
+    }
+
+
     ///Details Page
 
     //Scenario 1 DrillDown to Details Page
