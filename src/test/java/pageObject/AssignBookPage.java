@@ -14,13 +14,12 @@ public class AssignBookPage extends AbstractPage{
     }
 
     //  Repository
-    WebElement btnAssignBook = driver.findElement(By.xpath(".//*[@id='content']/div/div/div/div[3]/div/div/div/div[3]/form/fieldset/div[3]/button[2]"));
-    WebElement btnBack = driver.findElement(By.xpath(".//*[@id='content']/div/div/div/div[3]/div/div/div/div[3]/form/fieldset/div[3]/button[1]"));
+    WebElement btnAssignBook = driver.findElement(By.xpath("//button[@type='submit']"));
+    public WebElement btnBack = driver.findElement(By.xpath("//button[@type='button']"));
     WebElement ttlAssignBookForm = driver.findElement(By.cssSelector(".title>h2"));
     WebElement ddlAssignBook = driver.findElement(By.xpath(".//*[@id='content']/div/div/div/div[3]/div/div/div/div[3]/form/fieldset/div[1]/select"));
     WebElement ddlToUser = driver.findElement(By.cssSelector("div.rc-select-selection__rendered"));
     WebElement ddlToUserInput = driver.findElement(By.cssSelector("input.rc-select-search__field"));
-
 
     public void assignFormAssignBookButtonIsDisplayed (){
         Assert.assertTrue(btnAssignBook.isDisplayed());

@@ -232,6 +232,19 @@ public class Steps {
         Assert.assertEquals("User name isn't equal", string, assignBookPage.getSelectedUser());
     }
 
+    //Scenario 7
+
+    @When("^Admin clicks Back button$")
+    public void admin_clicks_Back_button() throws Throwable {
+        assignBookPage.waitAndClick(assignBookPage.btnBack);
+    }
+
+    @Then("^Admin redirected to Main Page$")
+    public void admin_redirected_to_Main_Page() throws Throwable {
+        mainPage = new MainPage(driver);
+        mainPage.checkPageURL(mainPageURL);
+    }
+
     ///Details Page
 
     //Scenario 1 DrillDown to Details Page

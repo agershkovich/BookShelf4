@@ -32,6 +32,14 @@ Feature: Assign Book Scenarios
       And I close a browser
 
 
+  Scenario: Admin redirected to Main Page after clicking Back button on Assign Page (Assign book Scenario 7)
+    Given Admin on Assign Book Page as "agershkovich@lohika.com" and "456rtyAG$%^RTY"
+    When Admin clicks Back button
+    Then Admin redirected to Main Page
+      And I close a browser
+
+
+
 
 
 

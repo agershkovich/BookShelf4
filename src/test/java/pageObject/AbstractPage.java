@@ -31,6 +31,13 @@ public class AbstractPage{
         Assert.assertTrue(findElement(By.cssSelector(".bg-screen")).isDisplayed());
         return new LoginPage(driver);
     }
+    //Actions
+    public void waitAndClick (WebElement webElement) {
+        if (webElement.isDisplayed()) {
+            webElement.click();
+        }
+
+    }
 
     private void highLight(WebElement element) {
         if (driver instanceof JavascriptExecutor) {
@@ -66,6 +73,7 @@ public class AbstractPage{
 
         public void checkPageURL (String pageURL){
             String currentURL = driver.getCurrentUrl();
+            System.out.println("Current URL: " + currentURL);
             Assert.assertEquals(currentURL,pageURL);
         }
 
