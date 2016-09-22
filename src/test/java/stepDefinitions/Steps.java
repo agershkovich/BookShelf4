@@ -121,6 +121,7 @@ public class Steps {
 
     @And("^User see Back View of Book Item$")
     public void user_see_back_view_of_book_item() throws Throwable {
+        bookItem = new BookItem(driver);
         bookItem.bookItemAssignButtonIsDisplayed();
         bookItem.bookItemReleaseDIsabledButtonIsDisplayed();
         bookItem.bookItemEditButtonIsDisplayed();
@@ -131,7 +132,7 @@ public class Steps {
 
     @When("^User click Assign button$")
     public void user_click_assign_button() throws Throwable {
-        bookItem.clickAssignButton();
+            bookItem.clickAssignButton();
     }
 
     @When("^User click Back button$")
@@ -149,20 +150,14 @@ public class Steps {
 
     //Scenario 2
 
-    @When("^Admin browse to Assign Book View as \"([^\"]*)\" and \"([^\"]*)\"$")
-    public void admin_browse_to_Assign_Book_View_as_and(String userName, String password) throws Throwable {
+    @When("^Admin browse to Assign Book View$")
+    public void admin_browse_to_Assign_Book_View () throws Throwable {
 
-        loginPage.login(userName, password);
-        bookItem = new BookItem(driver);
-        bookItem.bookItemFrontActionButtonIsDisplayed();
-        bookItem.clickActionButton();
-        bookItem.clickAssignButton();
-        assignBookPage = new AssignBookPage(driver);
-    }
+        }
 
     @Then("^All UI elements of Assign Book page are presented$")
     public void all_ui_elements_assign_book_page_are_presented() throws Throwable {
-        assignBookPage = new AssignBookPage(driver);
+//        assignBookPage = new AssignBookPage(driver);
         assignBookPage.assignFormBookDropDownListIsDisplayed();
         assignBookPage.assignFormUserDropDownListIsDisplayed();
         assignBookPage.assignFormAssignBookButtonIsDisplayed();
@@ -191,10 +186,16 @@ public class Steps {
 
     @And("^User sees an Assing Book form$")
     public void user_sees_an_Assing_Book_form() throws Throwable {
-        bookItem.bookItemFrontActionButtonIsDisplayed();
+//        bookItem = new BookItem(driver);
+//        bookItem.bookItemFrontActionButtonIsDisplayed();
+//        bookItem.clickActionButton();
+//        bookItem.clickAssignButton();
+//        assignBookPage = new AssignBookPage(driver);
         bookItem.clickActionButton();
+        bookItem = new BookItem(driver);
         bookItem.clickAssignButton();
-        assignBookPage = new AssignBookPage(driver);
+//        assignBookPage = new AssignBookPage(driver);
+
 
     }
 
@@ -217,6 +218,7 @@ public class Steps {
         bookItem = new BookItem(driver);
         bookItem.bookItemFrontActionButtonIsDisplayed();
         bookItem.clickActionButton();
+        bookItem = new BookItem(driver);
         bookItem.clickAssignButton();
         assignBookPage = new AssignBookPage(driver);
     }

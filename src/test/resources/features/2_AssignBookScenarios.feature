@@ -12,11 +12,10 @@ Feature: Assign Book Scenarios
       And I close a browser
 
   Scenario: Checking if UI elements are presents on Assign Book page (Assign Book Scenario 2)
-    Given I am on the Login page
-    When Admin browse to Assign Book View as "agershkovich@lohika.com" and "456rtyAG$%^RTY"
+    Given Admin on Assign Book Page as "agershkovich@lohika.com" and "456rtyAG$%^RTY"
+    When Admin browse to Assign Book View
     Then All UI elements of Assign Book page are presented
       And I close a browser
-
 
   Scenario: Check that the book name does not change during the assignment (Assign Book Scenario 3)
     Given I am on the Main page with admin "agershkovich@lohika.com" and "456rtyAG$%^RTY"
@@ -30,7 +29,6 @@ Feature: Assign Book Scenarios
     When Admin sees User List
     Then Admin can choose "abc-ci abc-ci"
       And I close a browser
-
 
   Scenario: Admin redirected to Main Page after clicking Back button on Assign Page (Assign book Scenario 7)
     Given Admin on Assign Book Page as "agershkovich@lohika.com" and "456rtyAG$%^RTY"

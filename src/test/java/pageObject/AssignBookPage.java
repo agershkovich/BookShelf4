@@ -14,12 +14,12 @@ public class AssignBookPage extends AbstractPage{
     }
 
     //  Repository
-    WebElement btnAssignBook = driver.findElement(By.xpath("//button[@type='submit']"));
-    public WebElement btnBack = driver.findElement(By.xpath("//button[@type='button']"));
-    WebElement ttlAssignBookForm = driver.findElement(By.cssSelector(".title>h2"));
-    WebElement ddlAssignBook = driver.findElement(By.xpath(".//*[@id='content']/div/div/div/div[3]/div/div/div/div[3]/form/fieldset/div[1]/select"));
-    WebElement ddlToUser = driver.findElement(By.cssSelector("div.rc-select-selection__rendered"));
-    WebElement ddlToUserInput = driver.findElement(By.cssSelector("input.rc-select-search__field"));
+    WebElement btnAssignBook = findElement(By.xpath("//button[@type='submit']"));
+    public WebElement btnBack = findElement(By.xpath("//button[@type='button']"));
+    WebElement ttlAssignBookForm = findElement(By.cssSelector(".title>h2"));
+    WebElement ddlAssignBook = findElement(By.xpath(".//*[@id='content']/div/div/div/div[3]/div/div/div/div[3]/form/fieldset/div[1]/select"));
+    WebElement ddlToUser = findElement(By.cssSelector("div.rc-select-selection__rendered"));
+    WebElement ddlToUserInput = findElement(By.cssSelector("input.rc-select-search__field"));
 
     public void assignFormAssignBookButtonIsDisplayed (){
         Assert.assertTrue(btnAssignBook.isDisplayed());
@@ -44,7 +44,7 @@ public class AssignBookPage extends AbstractPage{
 
 
     public String getAssignedBookName () {
-        Select dropDownBook = new Select(driver.findElement(By.name("book")));
+        Select dropDownBook = new Select(findElement(By.name("book")));
         String assignedBookName = dropDownBook.getFirstSelectedOption().getText();
         System.out.println(assignedBookName);
         return assignedBookName;

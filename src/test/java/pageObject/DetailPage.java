@@ -14,7 +14,7 @@ public class DetailPage extends AbstractPage{
 
     //Repository
 
-    WebElement titleDetailedPage = driver.findElement(By.cssSelector("div.property-value.pure-u-2-5 > div"));
+    WebElement titleDetailedPage = findElement(By.cssSelector("div.property-value.pure-u-2-5 > div"));
 
 
 
