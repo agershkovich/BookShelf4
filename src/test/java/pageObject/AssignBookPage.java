@@ -24,20 +24,13 @@ public class AssignBookPage extends AbstractPage{
     public void assignFormAssignBookButtonIsDisplayed (){
         Assert.assertTrue(btnAssignBook.isDisplayed());
     }
-
     public void assignFormBackButtonIsDisplayed (){
         Assert.assertTrue(btnBack.isDisplayed());
     }
-
     public void assignFormTitleIsDisplayed (){
         Assert.assertTrue(ttlAssignBookForm.isDisplayed());
     }
-
-    public void assignFormBookDropDownListIsDisplayed (){
-     Assert.assertTrue(ddlAssignBook.isDisplayed());
-
-    }
-
+    public void assignFormBookDropDownListIsDisplayed (){Assert.assertTrue(ddlAssignBook.isDisplayed()); }
     public void assignFormUserDropDownListIsDisplayed (){
         Assert.assertTrue(ddlToUser.isDisplayed());
     }
@@ -66,6 +59,12 @@ public class AssignBookPage extends AbstractPage{
         ddlToUserInput.sendKeys(Keys.RETURN);
 
 
+    }
+
+    public void pressAssignButton() {
+        if (btnAssignBook.isEnabled()) {
+            btnAssignBook.submit();
+        }
     }
 
 

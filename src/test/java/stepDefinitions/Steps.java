@@ -234,6 +234,33 @@ public class Steps {
         Assert.assertEquals("User name isn't equal", string, assignBookPage.getSelectedUser());
     }
 
+    //Scenario 6
+
+    @When("^Admin assign book to User \"([^\"]*)\"$")
+    public void admin_assign_book_to_User(String string) throws Throwable {
+        assignBookPage.sendKeysToUserList(string);
+        assignBookPage.pressAssignButton();
+    }
+
+    @Then("^Assign button becomes inactive$")
+    public void assign_button_becomes_inactive() throws Throwable {
+        bookItem = new BookItem(driver);
+        Assert.assertEquals("pure-button button-xl button-success pure-button-disabled", bookItem.bookItemAssignButtonState());
+    }
+
+    @Then("^Release button becomed active$")
+    public void release_button_becomed_active() throws Throwable {
+        Assert.assertEquals("pure-button button-xl button-error",bookItem.releaseButtonState());
+    }
+
+    @Then("^On Hands label appears$")
+    public void on_Hands_label_appears() throws Throwable {
+        bookItem.clickBackButton();
+        Assert.assertTrue(bookItem.availableLabel.isDisplayed());
+        Assert.assertEquals("On hands", bookItem.availableLabel.getText().trim());
+
+    }
+
     //Scenario 7
 
     @When("^Admin clicks Back button$")
@@ -253,7 +280,7 @@ public class Steps {
     public void admin_sees_Available_label_if_book_is_free() throws Throwable {
         bookItem = new BookItem(driver);
         Assert.assertTrue(bookItem.availableLabel.isDisplayed());
-        Assert.assertEquals("Available", bookItem.availableLabel.getText());
+        Assert.assertEquals("Available", bookItem.availableLabel.getText().trim());
     }
 
     @Then("^Available Label is green$")
