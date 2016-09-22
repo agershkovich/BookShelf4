@@ -50,6 +50,11 @@ Feature: Assign Book Scenarios
 #      And On Hands label appears
 #      And I close a browser
 
+  Scenario: Footer and Add Book Item are present on Main page
+    Given I am on the Main page with admin "agershkovich@lohika.com" and "456rtyAG$%^RTY"
+    Then Footer and Add Book Item are present on Main page
+      And I close a browser
+
 
 
 

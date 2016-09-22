@@ -311,6 +311,12 @@ public class Steps {
 
     }
 
+    @Then("^Footer and Add Book Item are present on Main page$")
+    public void footer_and_add_book_item_are_present_on_main_page() throws Throwable {
+        mainPage.isFooterDisplayed();
+        mainPage.addBookItemDisplayed();
+    }
+
 
 
 

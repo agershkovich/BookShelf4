@@ -28,6 +28,14 @@ public class MainPage extends AbstractPage {
         findElement(By.cssSelector(".signout")).click();
     }
 
+    public void isFooterDisplayed() {
+        Assert.assertTrue(findElement(By.cssSelector("div.footer > div")).isDisplayed());
+    }
+
+    public void addBookItemDisplayed() {
+        Assert.assertTrue(findElement(By.cssSelector(".fa.fa-plus-square-o.add-icon-custom")).isDisplayed());
+    }
+
 
 
 
