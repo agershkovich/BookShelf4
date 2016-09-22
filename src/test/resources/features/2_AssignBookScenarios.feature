@@ -42,13 +42,13 @@ Feature: Assign Book Scenarios
     Then Available Label is green
       And I close a browser
 
-#  Scenario: Assigning Book (Assign Book Scenario 6)
-    Given Admin on Assign Book Page as "agershkovich@lohika.com" and "456rtyAG$%^RTY"
-    When Admin assign book to User "abc-ci abc-ci"
-    Then Assign button becomes inactive
-      And Release button becomed active
-      And On Hands label appears
-      And I close a browser
+#   Scenario: Assigning Book (Assign Book Scenario 6)
+#    Given Admin on Assign Book Page as "agershkovich@lohika.com" and "456rtyAG$%^RTY"
+#    When Admin assign book to User "abc-ci abc-ci"
+#    Then Assign button becomes inactive
+#      And Release button becomed active
+#      And On Hands label appears
+#      And I close a browser
 
 
 

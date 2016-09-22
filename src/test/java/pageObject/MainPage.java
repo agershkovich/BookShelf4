@@ -3,6 +3,7 @@ package pageObject;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.FindBy;
 
 
 public class MainPage extends AbstractPage {
@@ -26,6 +27,8 @@ public class MainPage extends AbstractPage {
         findElement(By.cssSelector(".signout")).isDisplayed();
         findElement(By.cssSelector(".signout")).click();
     }
+
+
 
 
 
