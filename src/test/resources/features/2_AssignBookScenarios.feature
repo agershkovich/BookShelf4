@@ -46,7 +46,7 @@ Feature: Assign Book Scenarios
 #    Given Admin on Assign Book Page as "agershkovich@lohika.com" and "456rtyAG$%^RTY"
 #    When Admin assign book to User "abc-ci abc-ci"
 #    Then Assign button becomes inactive
-#      And Release button becomed active
+#      And Release button becomes active
 #      And On Hands label appears
 #      And I close a browser
 

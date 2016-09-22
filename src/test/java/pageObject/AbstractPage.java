@@ -76,7 +76,7 @@ public class AbstractPage{
 
         public void checkPageURL (String pageURL){
             String currentURL = driver.getCurrentUrl();
-            System.out.println("Current URL: " + currentURL);
+//            System.out.println("Current URL: " + currentURL);
             Assert.assertEquals(currentURL,pageURL);
         }
 

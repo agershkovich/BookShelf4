@@ -248,7 +248,7 @@ public class Steps {
         Assert.assertEquals("pure-button button-xl button-success pure-button-disabled", bookItem.bookItemAssignButtonState());
     }
 
-    @Then("^Release button becomed active$")
+    @Then("^Release button becomes active$")
     public void release_button_becomed_active() throws Throwable {
         Assert.assertEquals("pure-button button-xl button-error",bookItem.releaseButtonState());
     }
