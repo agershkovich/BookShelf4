@@ -317,6 +317,24 @@ public class Steps {
         mainPage.addBookItemDisplayed();
     }
 
+    //Feature Main Page Design
+    //Scenario: Book Items has Flags with Language and Label
+
+    @When("^Admin sees Book Item$")
+    public void admin_sees_Book_Item() throws Throwable {
+        bookItem = new BookItem(driver);
+        bookItem.bookItemAssignButtonIsDisplayed();
+        bookItem.bookItemReleaseDIsabledButtonIsDisplayed();
+        bookItem.bookItemEditButtonIsDisplayed();
+        bookItem.bookItemBackButtonIsDisplayed();
+        bookItem.bookItemDeleteButtonIsDisplayed();
+        bookItem.bookItemViewButtonIsDisplayed();
+    }
+
+    @Then("^Admin sees Language Flag and Label Flag$")
+    public void admin_sees_Language_Flag_and_Label_Flag() throws Throwable {
+    }
+
 
 
 
