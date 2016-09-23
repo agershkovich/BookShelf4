@@ -26,6 +26,10 @@ public class BookItem extends AbstractPage {
     WebElement deleteButton = findElement(By.cssSelector(".pure-button.button-xl.button-error"));
     WebElement viewButton = findElement(By.linkText("View"));
     public WebElement availableLabel = findElement(By.xpath(".//*[@id='content']/div/div/div/div[3]/div/div/div[2]/div/div/div[1]/div[6]/div[2]/div"));
+    WebElement label = findElement(By.xpath(".//*[@id='content']/div/div/div/div[3]/div/div/div[2]/div/div/div[1]/div[1]/div[1]/span"));
+    WebElement language = findElement(By.xpath(".//*[@id='content']/div/div/div/div[3]/div/div/div[2]/div/div/div[1]/div[1]/div[2]/span"));
+
+
 
 
 
@@ -44,7 +48,6 @@ public class BookItem extends AbstractPage {
     public void bookItemAssignButtonIsDisplayed (){
         Assert.assertTrue(assignButton.isDisplayed());
     }
-
     public void bookItemReleaseDIsabledButtonIsDisplayed (){
         Assert.assertTrue(releaseButton.isDisplayed());
     }
@@ -59,6 +62,9 @@ public class BookItem extends AbstractPage {
     public void bookItemViewButtonIsDisplayed (){
         Assert.assertTrue(viewButton.isDisplayed());
     }
+
+    public void bookItemLabelIsDisplayed () {Assert.assertTrue(label.isDisplayed());}
+    public void bookItemLanguageIsDisplayed () {Assert.assertTrue(language.isDisplayed());}
 
     public String bookItemAssignButtonState(){String state = assignButton.getAttribute("class").trim();
         return state;
@@ -78,6 +84,8 @@ public class BookItem extends AbstractPage {
     public void clickFront() {
         waitAndClick(front);
     }
+
+
 
 
 }

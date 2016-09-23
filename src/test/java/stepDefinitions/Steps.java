@@ -186,17 +186,9 @@ public class Steps {
 
     @And("^User sees an Assing Book form$")
     public void user_sees_an_Assing_Book_form() throws Throwable {
-//        bookItem = new BookItem(driver);
-//        bookItem.bookItemFrontActionButtonIsDisplayed();
-//        bookItem.clickActionButton();
-//        bookItem.clickAssignButton();
-//        assignBookPage = new AssignBookPage(driver);
         bookItem.clickActionButton();
         bookItem = new BookItem(driver);
         bookItem.clickAssignButton();
-//        assignBookPage = new AssignBookPage(driver);
-
-
     }
 
     @Then("^The value in Assign Book field is equal to Book's title that was selected in Book list view$")
@@ -333,7 +325,11 @@ public class Steps {
 
     @Then("^Admin sees Language Flag and Label Flag$")
     public void admin_sees_Language_Flag_and_Label_Flag() throws Throwable {
+        bookItem.bookItemLabelIsDisplayed();
+        bookItem.bookItemLanguageIsDisplayed();
     }
+
+
 
 
 
