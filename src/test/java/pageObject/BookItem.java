@@ -43,8 +43,6 @@ public class BookItem extends AbstractPage {
     public void bookItemTitleIsDisplayed (){
         Assert.assertTrue(title.isDisplayed());
     }
-
-
     public void bookItemAssignButtonIsDisplayed (){
         Assert.assertTrue(assignButton.isDisplayed());
     }
@@ -62,19 +60,17 @@ public class BookItem extends AbstractPage {
     public void bookItemViewButtonIsDisplayed (){
         Assert.assertTrue(viewButton.isDisplayed());
     }
-
-    public void bookItemLabelIsDisplayed () {Assert.assertTrue(label.isDisplayed());}
+    public void bookItemLabelIsDisplayed () {
+        Assert.assertTrue(label.isDisplayed());}
     public void bookItemLanguageIsDisplayed () {Assert.assertTrue(language.isDisplayed());}
 
     public String bookItemAssignButtonState(){String state = assignButton.getAttribute("class").trim();
         return state;
-        }
+    }
 
     public String releaseButtonState() {String state = releaseButton.getAttribute("class").trim();
         return state;
     }
-
-
 
     public void clickActionButton() { waitAndClick(actionsButton); }
     public void clickAssignButton() { waitAndClick(assignButton); }
@@ -84,8 +80,5 @@ public class BookItem extends AbstractPage {
     public void clickFront() {
         waitAndClick(front);
     }
-
-
-
 
 }

@@ -80,6 +80,21 @@ public class AbstractPage{
             Assert.assertEquals(currentURL,pageURL);
         }
 
+    public void  clickSignOut(){waitAndClick(findElement(By.cssSelector(".signout")));}
+    public void clickLogo() {waitAndClick(findElement(By.cssSelector(".logo")));}
+
+    public void checkSignOut (){
+        Assert.assertTrue(findElement(By.cssSelector(".signout")).isDisplayed());
+    }
+    public void isFooterDisplayed() {Assert.assertTrue(findElement(By.cssSelector("div.footer > div")).isDisplayed());}
+    public void addBookItemDisplayed() {Assert.assertTrue(findElement(By.cssSelector(".fa.fa-plus-square-o.add-icon-custom")).isDisplayed());}
+    public void isLogoDisplayed(){Assert.assertTrue(findElement(By.cssSelector(".logo")).isDisplayed()); }
+    public void isSearchButtonDisplayed(){Assert.assertTrue(findElement(By.cssSelector(".search-button")).isDisplayed());}
+    public void isSearchInputDisplayed(){Assert.assertTrue(findElement(By.cssSelector(".pure-form>fieldset")).isDisplayed());}
+    public void isMenuDisplayed(){Assert.assertTrue(findElement(By.cssSelector(".mainmenu.text-primary")).isDisplayed());}
+    public void isUserInfoDisplayed(){Assert.assertTrue(findElement(By.cssSelector(".user-info")).isDisplayed());}
+    public void isHeaderDisplayed(){Assert.assertTrue(findElement(By.xpath(".//*[@id='content']/div/div/div/div[2]/div")).isDisplayed());}
+
 
 
 

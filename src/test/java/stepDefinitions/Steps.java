@@ -329,6 +329,49 @@ public class Steps {
         bookItem.bookItemLanguageIsDisplayed();
     }
 
+    //Scenario: Header Design and Refactoring
+
+    @Then("^Admin see redesigned elements$")
+    public void admin_see_redisigned_elements() throws Throwable {
+       mainPage.isHeaderDisplayed();
+       mainPage.isLogoDisplayed();
+       mainPage.isSearchButtonDisplayed();
+       mainPage.isSearchInputDisplayed();
+       mainPage.isMenuDisplayed();
+       mainPage.isUserInfoDisplayed();
+       mainPage.checkSignOut();
+    }
+
+    //Scenario: Returning to Main page after clicking on the Logo
+
+    @Given("^I am on the Detail page with admin \"([^\"]*)\" and \"([^\"]*)\"$")
+    public void i_am_on_the_Detail_page_with_admin_and(String userName, String password) throws Throwable {
+        loginPage = new LoginPage(driver);
+        loginPage.navigateToLoginPage();
+        loginPage.login(userName, password);
+//        mainPage = new MainPage(driver);
+//        mainPage.checkPageURL(mainPageURL);
+        bookItem = new BookItem(driver);
+        bookItem.bookItemTitleIsDisplayed();
+        selectedBook = bookItem.getSelectedBookName();
+        bookItem.clickFront();
+        detailPage = new DetailPage(driver);
+        String detailPageBookName = detailPage.getDetailedBookName();
+        Assert.assertEquals("Book names aren't equal", detailPageBookName, selectedBook);
+    }
+
+    @When("^I click on the Logo$")
+    public void i_click_on_the_Logo() throws Throwable {
+        detailPage.clickLogo();
+    }
+
+    @Then("^I return to the Main Page$")
+    public void i_return_to_the_Main_Page() throws Throwable {
+        mainPage = new MainPage(driver);
+        mainPage.checkPageURL(mainPageURL);
+    }
+
+
 
 
 

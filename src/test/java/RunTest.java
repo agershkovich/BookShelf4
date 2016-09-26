@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
 
         features = "src/test/resources",//path to the features
-        format = {"pretty", "html:target/html","json:target/cucumber.json"},//what formatters to use
+        format = {"pretty", "json:target/cucumber.json"},//what formatters to use
         tags = {"@run"})//what tags to incluse(@)/exclude(@~)
 
 public class RunTest {
