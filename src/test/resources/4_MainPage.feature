@@ -16,4 +16,3 @@ Feature: Main Page
      When I click on the Logo
      Then I return to the Main Page
        And I close a browser
-
